@@ -76,7 +76,7 @@ const arrayzapatillas = [
   {
     id: 10,
     marca: 'Adidas Original',
-    name: 'Adidas Handball Spezial',
+    name: 'Handball Spezial',
     modelo: 'Handball Spezial',
     img: 'assets/Handball Spezial.png',
     price: '140.00€'
@@ -124,7 +124,7 @@ const arrayzapatillas = [
   {
     id: 16,
     marca: 'Adidas Original',
-    name: 'Adidas Handball Spezial',
+    name: 'Handball Spezial',
     modelo: 'Handball Spezial',
     img: 'assets/Handball Spezial-2.png',
     price: '120.00€'
@@ -136,13 +136,9 @@ const modelos = []
 let modelo = ''
 
 const Filtrar = () => {
-  const filtered = []
-
-  for (const zapa of arrayzapatillas) {
-    if (modelo === zapa.modelo) {
-      filtered.push(zapa)
-    }
-  }
+  const filtered = modelo
+    ? arrayzapatillas.filter((zapa) => modelo === zapa.modelo)
+    : arrayzapatillas
   PintarZapa(filtered)
 }
 
@@ -159,6 +155,11 @@ fillmodelos(arrayzapatillas)
 const CreatSelectmodel = () => {
   const divFiltros = document.querySelector('#Filtros')
   const Selectmodel = document.createElement('Select')
+  const optionDefault = document.createElement('option')
+  optionDefault.value = ''
+  optionDefault.textContent = 'Todos los modelos'
+  Selectmodel.appendChild(optionDefault)
+
   for (const modelo of modelos) {
     const option = document.createElement('option')
 
@@ -168,6 +169,14 @@ const CreatSelectmodel = () => {
     Selectmodel.appendChild(option)
   }
   divFiltros.appendChild(Selectmodel)
+  const limpiarButton = document.createElement('button')
+  limpiarButton.textContent = 'Limpiar'
+  limpiarButton.addEventListener('click', () => {
+    modelo = ''
+    Selectmodel.value = ''
+    Filtrar()
+  })
+  divFiltros.appendChild(limpiarButton)
   Selectmodel.addEventListener('change', (event) => {
     modelo = event.target.value
     Filtrar()
@@ -182,20 +191,39 @@ const PintarZapa = (zapas) => {
     const DivZapa = document.createElement('div')
     const DivImg = document.createElement('div')
     const img = document.createElement('img')
-    const name = document.createElement('h3')
+    const marca = document.createElement('span')
+    const Divnameprice = document.createElement('div')
+    const name = document.createElement('h4')
     const price = document.createElement('p')
+    const button = document.createElement('button')
+
+    button.addEventListener('click', (event) => {
+      const botones = DivZapas.querySelectorAll('button')
+      botones.forEach((boton) => {
+        boton.style.backgroundColor = ''
+      })
+
+      event.currentTarget.style.backgroundColor = 'yellow'
+    })
 
     DivZapa.className = 'flex-container'
     DivImg.classList.add('imgContainer')
+    Divnameprice.className = 'Flex-container'
+    Divnameprice.classList.add('container')
     img.src = zapa.img
 
+    marca.textContent = zapa.marca
     name.textContent = zapa.name
     price.textContent = zapa.price
+    button.textContent = 'Comprar'
 
     DivZapa.appendChild(DivImg)
     DivImg.appendChild(img)
-    DivZapa.appendChild(name)
-    DivZapa.appendChild(price)
+    DivZapa.appendChild(marca)
+    DivZapa.appendChild(Divnameprice)
+    Divnameprice.appendChild(name)
+    Divnameprice.appendChild(price)
+    DivZapa.appendChild(button)
     DivZapas.appendChild(DivZapa)
   }
 }

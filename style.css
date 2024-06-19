@@ -3,6 +3,7 @@
   --color-200: #d8d4d5ea;
   --color-300: #858182;
   --color-400: #202124;
+  --color-500: rgb(247, 247, 8);
   font-family: 'Rubik', sans-serif;
 
   --padding-100: 10px;
@@ -96,12 +97,20 @@ body {
   height: 100%;
   padding-bottom: var(--padding-200);
   cursor: pointer;
-  border: 1px solid #858182;
   box-shadow: 5px 5px 10px rgba(141, 141, 141, 0.5);
   border-radius: 7px;
 }
 #Producto > div:hover {
   transform: scale(1.2);
+}
+
+.container {
+  display: flex;
+  gap: var(--gap-300);
+}
+
+#Producto > div > span {
+  font-size: small;
 }
 
 .imgContainer {
@@ -115,9 +124,29 @@ body {
   object-fit: cover;
 }
 
+button {
+  width: 90%;
+  font-size: larger;
+  border: 1px solid var(--color-200);
+  box-shadow: 5px 5px 10px rgba(141, 141, 141, 0.5);
+  padding: var(--padding-100);
+  cursor: pointer;
+}
+
 #Filtros {
   height: 100px;
   padding: var(--padding-100);
+  background-color: var(--color-200);
+}
+#Filtros > select {
+  padding: var(--padding-100);
+  border-radius: 5px;
+}
+
+#Filtros > button {
+  width: 100px;
+  font-size: small;
+  border-radius: 5px;
 }
 
 footer {
@@ -167,5 +196,12 @@ footer ul li a:hover {
   .lista > li > img {
     width: 20px;
     height: 20px;
+  }
+
+  #Producto {
+    max-width: 600px;
+  }
+  #Producto > div {
+    max-width: 350px;
   }
 }
