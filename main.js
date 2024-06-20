@@ -136,10 +136,25 @@ const modelos = []
 let modelo = ''
 
 const Filtrar = () => {
-  const filtered = modelo
-    ? arrayzapatillas.filter((zapa) => modelo === zapa.modelo)
-    : arrayzapatillas
-  PintarZapa(filtered)
+  const inputPrecioMax = document.querySelector(
+    '#Filtros input[placeholder="Precio Máximo"]'
+  ).value
+
+  const maxPrice = parseFloat(inputPrecioMax) || Infinity
+
+  const filtered = arrayzapatillas.filter((zapa) => {
+    const price = parseFloat(zapa.price.replace('€', ''))
+    const modeloMatch = modelo ? modelo === zapa.modelo : true
+    const priceMatch = price <= maxPrice
+
+    return modeloMatch && priceMatch
+  })
+
+  if (filtered.length === 0) {
+    MostrarRecomendaciones()
+  } else {
+    PintarZapa(filtered)
+  }
 }
 
 const fillmodelos = (zapas) => {
@@ -169,18 +184,37 @@ const CreatSelectmodel = () => {
     Selectmodel.appendChild(option)
   }
   divFiltros.appendChild(Selectmodel)
+
+  const inputPrecioMax = document.createElement('input')
+  inputPrecioMax.type = 'number'
+  inputPrecioMax.placeholder = 'Precio Máximo'
+
+  divFiltros.appendChild(inputPrecioMax)
+
+  const filtrarButton = document.createElement('button')
+  filtrarButton.textContent = 'Filtrar'
+  filtrarButton.addEventListener('click', Filtrar)
+  divFiltros.appendChild(filtrarButton)
+
   const limpiarButton = document.createElement('button')
   limpiarButton.textContent = 'Limpiar'
   limpiarButton.addEventListener('click', () => {
     modelo = ''
     Selectmodel.value = ''
-    Filtrar()
+    inputPrecioMax.value = ''
+    PintarZapa(arrayzapatillas)
   })
   divFiltros.appendChild(limpiarButton)
   Selectmodel.addEventListener('change', (event) => {
     modelo = event.target.value
     Filtrar()
   })
+}
+const MostrarRecomendaciones = () => {
+  const DivZapas = document.querySelector('#Producto')
+  DivZapas.innerHTML = ''
+  const recomendaciones = arrayzapatillas.slice(0, 3)
+  PintarZapa(recomendaciones)
 }
 
 const PintarZapa = (zapas) => {
