@@ -6,6 +6,7 @@ const arrayzapatillas = [
     marca: 'Nike Original',
     name: 'Nike Air Max 90',
     modelo: 'Air Max 90',
+    title: 'Zapatilla Nike',
     img: './assets/Air Max 90.png',
     price: '120.00€'
   },
@@ -14,6 +15,7 @@ const arrayzapatillas = [
     marca: 'New Balance',
     name: 'NB 9060',
     modelo: 'NB 9060',
+    title: 'Zapatilla New Balance',
     img: 'assets/NB 9060.png',
     price: '80.00€'
   },
@@ -22,6 +24,7 @@ const arrayzapatillas = [
     marca: 'Nike Original',
     name: 'Nike Metcon 9',
     modelo: 'Nike Metcon 9',
+    title: 'Zapatilla Nike',
     img: 'assets/Nike Metcon 9.png',
     price: '90.00€'
   },
@@ -30,6 +33,7 @@ const arrayzapatillas = [
     marca: 'Adidas Original',
     name: 'Adidas Forum Low',
     modelo: 'Forum Low',
+    title: 'Zapatilla Adidas',
     img: 'assets/Forum Low.png',
     price: '100.00€'
   },
@@ -38,6 +42,7 @@ const arrayzapatillas = [
     marca: 'Adidas Original',
     name: 'Adidas Campus',
     modelo: 'Campus',
+    title: 'Zapatilla Adidas',
     img: 'assets/Campus.png',
     price: '120.00€'
   },
@@ -46,6 +51,7 @@ const arrayzapatillas = [
     marca: 'New Balance',
     name: 'NB 327',
     modelo: 'NB 327',
+    title: 'Zapatilla New Balance',
     img: 'assets/NB 327.png',
     price: '120.00€'
   },
@@ -54,6 +60,7 @@ const arrayzapatillas = [
     marca: 'Nike Original',
     name: 'Nike Dunk Low',
     modelo: 'Dunk Low',
+    title: 'Zapatilla Nike',
     img: 'assets/Dunk Low.png',
     price: '100.00€'
   },
@@ -62,6 +69,7 @@ const arrayzapatillas = [
     marca: 'Adidas Original',
     name: 'Adidas Gazelle',
     modelo: 'Gazelle',
+    title: 'Zapatilla Adidas',
     img: 'assets/Gazelle.png',
     price: '90.00€'
   },
@@ -70,6 +78,7 @@ const arrayzapatillas = [
     marca: 'Nike Original',
     name: 'Nike Air Max 97 ',
     modelo: 'Nike Air Max 97',
+    title: 'Zapatilla Nike',
     img: 'assets/Nike Air Max 97.png',
     price: '150.00€'
   },
@@ -78,6 +87,7 @@ const arrayzapatillas = [
     marca: 'Adidas Original',
     name: 'Handball Spezial',
     modelo: 'Handball Spezial',
+    title: 'Zapatilla Adidas',
     img: 'assets/Handball Spezial.png',
     price: '140.00€'
   },
@@ -86,6 +96,7 @@ const arrayzapatillas = [
     marca: 'Nike Original',
     name: 'Nike Air Force 1',
     modelo: 'Air Force 1',
+    title: 'Zapatilla Nike',
     img: 'assets/Air Force 1.png',
     price: '130.00€'
   },
@@ -94,6 +105,7 @@ const arrayzapatillas = [
     marca: 'New Balance',
     name: 'NB 9060',
     modelo: 'NB 9060',
+    title: 'Zapatilla New Balance',
     img: 'assets/NB 9060-2.png',
     price: '100.00€'
   },
@@ -102,6 +114,7 @@ const arrayzapatillas = [
     marca: 'New Balance',
     name: 'NB 550',
     modelo: 'NB 550',
+    title: 'Zapatilla New Balance',
     img: 'assets/NB 550.png',
     price: '140.00€'
   },
@@ -110,6 +123,7 @@ const arrayzapatillas = [
     marca: 'Nike Original',
     name: 'Nike Full Force Low',
     modelo: 'Full Force Low',
+    title: 'Zapatilla Nike',
     img: 'assets/Full Force Low.png',
     price: '70.00€'
   },
@@ -118,6 +132,7 @@ const arrayzapatillas = [
     marca: 'Nike Original',
     name: 'Nike Air Max 90',
     modelo: 'Air Max 90',
+    title: 'Zapatilla Nike',
     img: 'assets/Air Max 90-2.png',
     price: '160.00€'
   },
@@ -126,6 +141,7 @@ const arrayzapatillas = [
     marca: 'Adidas Original',
     name: 'Handball Spezial',
     modelo: 'Handball Spezial',
+    title: 'Zapatilla Adidas',
     img: 'assets/Handball Spezial-2.png',
     price: '120.00€'
   }
@@ -245,6 +261,8 @@ const PintarZapa = (zapas) => {
     Divnameprice.className = 'Flex-container'
     Divnameprice.classList.add('container')
     img.src = zapa.img
+    img.alt = 'Zapatilla ultimo modelo'
+    img.title = zapa.title
 
     marca.textContent = zapa.marca
     name.textContent = zapa.name
