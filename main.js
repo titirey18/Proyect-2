@@ -211,11 +211,6 @@ function insertFooter() {
   `
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  insertHeader()
-  insertFooter()
-})
-
 const Filtrar = () => {
   const inputPrecioMax = document.querySelector(
     '#Filtros input[placeholder="Precio Máximo"]'
@@ -230,6 +225,9 @@ const Filtrar = () => {
 
     return modeloMatch && priceMatch
   })
+
+  const DivZapas = document.querySelector('#Producto')
+  DivZapas.innerHTML = ''
 
   if (filtered.length === 0) {
     MostrarRecomendaciones()
@@ -293,7 +291,12 @@ const CreatSelectmodel = () => {
 }
 const MostrarRecomendaciones = () => {
   const DivZapas = document.querySelector('#Producto')
-  DivZapas.innerHTML = ''
+
+  const mensaje = document.createElement('p')
+  mensaje.textContent = 'Productos sugeridos:'
+  DivZapas.appendChild(mensaje)
+
+  const aleatorio = arrayzapatillas.sort(() => 0.5 - Math.random())
   const recomendaciones = arrayzapatillas.slice(0, 3)
   PintarZapa(recomendaciones)
 }
@@ -345,5 +348,9 @@ const PintarZapa = (zapas) => {
   }
 }
 
-PintarZapa(arrayzapatillas)
-CreatSelectmodel()
+document.addEventListener('DOMContentLoaded', () => {
+  insertHeader()
+  insertFooter()
+  PintarZapa(arrayzapatillas)
+  CreatSelectmodel()
+})
