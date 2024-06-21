@@ -4,7 +4,7 @@ const arrayzapatillas = [
   {
     id: 1,
     marca: 'Nike Original',
-    name: 'Nike Air Max 90',
+    name: 'Air Max 90',
     modelo: 'Air Max 90',
     title: 'Zapatilla Nike',
     img: './assets/Air Max 90.png',
@@ -22,7 +22,7 @@ const arrayzapatillas = [
   {
     id: 3,
     marca: 'Nike Original',
-    name: 'Nike Metcon 9',
+    name: 'Metcon 9',
     modelo: 'Nike Metcon 9',
     title: 'Zapatilla Nike',
     img: 'assets/Nike Metcon 9.png',
@@ -31,7 +31,7 @@ const arrayzapatillas = [
   {
     id: 4,
     marca: 'Adidas Original',
-    name: 'Adidas Forum Low',
+    name: 'Forum Low',
     modelo: 'Forum Low',
     title: 'Zapatilla Adidas',
     img: 'assets/Forum Low.png',
@@ -40,7 +40,7 @@ const arrayzapatillas = [
   {
     id: 5,
     marca: 'Adidas Original',
-    name: 'Adidas Campus',
+    name: 'Campus',
     modelo: 'Campus',
     title: 'Zapatilla Adidas',
     img: 'assets/Campus.png',
@@ -58,7 +58,7 @@ const arrayzapatillas = [
   {
     id: 7,
     marca: 'Nike Original',
-    name: 'Nike Dunk Low',
+    name: 'Dunk Low',
     modelo: 'Dunk Low',
     title: 'Zapatilla Nike',
     img: 'assets/Dunk Low.png',
@@ -67,7 +67,7 @@ const arrayzapatillas = [
   {
     id: 8,
     marca: 'Adidas Original',
-    name: 'Adidas Gazelle',
+    name: 'Gazelle',
     modelo: 'Gazelle',
     title: 'Zapatilla Adidas',
     img: 'assets/Gazelle.png',
@@ -76,7 +76,7 @@ const arrayzapatillas = [
   {
     id: 9,
     marca: 'Nike Original',
-    name: 'Nike Air Max 97 ',
+    name: 'Air Max 97 ',
     modelo: 'Nike Air Max 97',
     title: 'Zapatilla Nike',
     img: 'assets/Nike Air Max 97.png',
@@ -94,7 +94,7 @@ const arrayzapatillas = [
   {
     id: 11,
     marca: 'Nike Original',
-    name: 'Nike Air Force 1',
+    name: 'Air Force 1',
     modelo: 'Air Force 1',
     title: 'Zapatilla Nike',
     img: 'assets/Air Force 1.png',
@@ -121,7 +121,7 @@ const arrayzapatillas = [
   {
     id: 14,
     marca: 'Nike Original',
-    name: 'Nike Full Force Low',
+    name: 'Full Force Low',
     modelo: 'Full Force Low',
     title: 'Zapatilla Nike',
     img: 'assets/Full Force Low.png',
@@ -130,7 +130,7 @@ const arrayzapatillas = [
   {
     id: 15,
     marca: 'Nike Original',
-    name: 'Nike Air Max 90',
+    name: 'Air Max 90',
     modelo: 'Air Max 90',
     title: 'Zapatilla Nike',
     img: 'assets/Air Max 90-2.png',
@@ -150,6 +150,71 @@ const arrayzapatillas = [
 const modelos = []
 
 let modelo = ''
+
+function insertHeader() {
+  const header = document.getElementById('Home')
+  header.innerHTML = `
+    <img src="assets/JD-logo.png" alt="logo-icon" title="Logo JD Sports" width="40px" height="40px" />
+    <nav>
+      <ul class="lista" type="enlace">
+        <li><a href="Productos">Hombre</a></li>
+        <li><a href="#">Mujer</a></li>
+        <li><a href="#">Niños</a></li>
+        <li><a href="#">Ofertas</a></li>
+      </ul>
+    </nav>
+    <nav>
+      <ul class="lista" type="iconos">
+        <li><img src="assets/image_white_lines.png" alt="filtro-icono" title="Filtros" width="25px" height="25px" /></li>
+        <li><img src="assets/shopping-basket.png" alt="tienda-icono" title="Tienda" width="30px" height="30px" /></li>
+        <li><img src="assets/user-avatar.png" alt="user-icono" title="Usuario" width="30px" height="30px" /></li>
+      </ul>
+    </nav>
+  `
+}
+
+function insertFooter() {
+  const footer = document.getElementById('main-footer')
+  footer.innerHTML = `
+    <ul>
+      <li>Compra con JD</li>
+      <li><a href="https://www.jdsports.es/customer-service/size-guide/" rel="noopener">Guia de tallas</a></li>
+      <li><a href="https://www.jdsports.es/store-locator/all-stores/" rel="noopener">Buscador de tiendas</a></li>
+      <li><a href="https://www.jdsports.es/page/student-discount/" rel="noopener">Descuento por ser estudiante</a></li>
+      <li><a href="https://blog.jdsports.es/calendario-lanzamientos-sneakers/" rel="noopener">Calendario de lanzamientos</a></li>
+      <li><a href="https://www.jdsports.es/page/jdx/" rel="noopener">Inscribete gratis a JDX</a></li>
+      <li><a href="https://blog.jdsports.es/" rel="noopener">JD Blog</a></li>
+    </ul>
+    <ul>
+      <li>Atencion al Cliente</li>
+      <li><a href="https://www.jdsports.es/pages/faqs/" rel="noopener">Preguntas frecuentes</a></li>
+      <li><a href="https://www.jdsports.es/page/delivery-returns/" rel="noopener">Envios y devoluciones</a></li>
+      <li><a href="https://www.jdsports.es/track-my-order/" rel="noopener">Seguimiento de envio</a></li>
+      <li><a href="https://www.jdsports.es/customer-service/contact/" rel="noopener">Contacto</a></li>
+    </ul>
+    <ul>
+      <li>La empresa</li>
+      <li><a href="https://es.careers.isrg.com/" rel="noopener">JD Careers</a></li>
+      <li><a href="https://www.jdplc.com/" rel="noopener">JD Sports Fashion</a></li>
+      <li><a href="https://ui.awin.com/merchant-profile/10121" rel="noopener">Programa de afiliados</a></li>
+    </ul>
+    <ul>
+      <li>Avios legal</li>
+      <li><a href="https://www.jdsports.es/customer-service/terms/" rel="noopener">Terminos y condiciones</a></li>
+      <li><a href="https://www.jdsports.es/page/terminos-condiciones-promociones/" rel="noopener">Promociones y condiciones</a></li>
+      <li><a href="https://www.jdsports.es/page/terminos-condiciones-promociones/" rel="noopener">Politica de Privacidad</a></li>
+      <li><a href="https://www.jdsports.es/customer-service/cookies/" rel="noopener">Politica de Cookies</a></li>
+      <li><a href="https://www.jdplc.com/accessibility" rel="noopener">Accesibilidad</a></li>
+      <li><a href="https://www.jdsports.es/customer-service/ue-platform/" rel="noopener">Resolucion litigios en linea</a></li>
+      <li><a href="https://www.jdsports.es/customer-service/canal-sistema-interno-informacion-whistleblowing/">Sistema interno de informacion del grupo JD - Whistleblowing</a></li>
+    </ul>
+  `
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  insertHeader()
+  insertFooter()
+})
 
 const Filtrar = () => {
   const inputPrecioMax = document.querySelector(
@@ -279,5 +344,6 @@ const PintarZapa = (zapas) => {
     DivZapas.appendChild(DivZapa)
   }
 }
+
 PintarZapa(arrayzapatillas)
 CreatSelectmodel()
